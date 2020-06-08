@@ -23,7 +23,10 @@ java_library(
         "ToolsSetup.java",
     ],
     visibility = ["//src/test/java/com/google/devtools/build/lib/blackbox:__subpackages__"],
-    deps = [":deps"],
+    deps = [
+        ":deps",
+        "//third_party:flogger",
+    ],
 )
 
 java_test(
@@ -36,10 +39,12 @@ java_test(
     tags = ["black_box_test"],
     test_class = "com.google.devtools.build.lib.AllTests",
     visibility = ["//src/test/java/com/google/devtools/build/lib/blackbox/tests:__pkg__"],
+    # XXXXXXX Check deps vs runtime_deps
     deps = [
         ":deps",
         ":framework",
     ],
+    runtime_deps = [":framework"],
 )
 
 filegroup(
