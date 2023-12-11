@@ -12,7 +12,7 @@ licenses(["notice"])  # Apache 2.0
 
 license(
     name = "license",
-    package_name = "googleapis",
+    package_name = "ijar",
     license_kinds = [
         "@rules_license//licenses/spdx:Apache-2.0",
     ],
