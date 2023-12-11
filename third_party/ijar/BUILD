@@ -1,4 +1,7 @@
+load("@rules_license//rules:license.bzl", "license")
+
 package(
+    default_package_metadata = [":license"],
     default_visibility = [
         "//src:__subpackages__",
         "//third_party/ijar:__subpackages__",
@@ -6,6 +9,15 @@ package(
 )
 
 licenses(["notice"])  # Apache 2.0
+
+license(
+    name = "license",
+    package_name = "googleapis",
+    license_kinds = [
+        "@rules_license//licenses/spdx:Apache-2.0",
+    ],
+    license_text = "LICENSE",
+)
 
 cc_library(
     name = "zip",
